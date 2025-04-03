@@ -32,12 +32,12 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/loans', loanRoutes);
 
-app.all('*', (req, res, next) => {
-  const error = new Error(`Can't find ${req.originalUrl} on this server!`);
-  error.status = 'fail';
-  error.statusCode = 404;
-  next(error);
-});
+// app.all('*', (req, res, next) => {
+//   const error = new Error(`Can't find ${req.originalUrl} on this server!`);
+//   error.status = 'fail';
+//   error.statusCode = 404;
+//   next(error);
+// });
 
 app.use(globalErrorHandler);
 
